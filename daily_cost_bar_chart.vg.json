@@ -4,18 +4,18 @@
   "width": 500,
   "height": 300,
   "data": {
-  "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/blob/main/Filtered_data.csv"
+  "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/main/Filtered_data.csv"
   },
 
   "mark": "bar",
   "encoding": {
     "x": { 
-      "field": "daily_cost", 
+      "field": "Renewable", 
       "type": "quantitative",
       "title": "Daily Cost (USD)"
     },
     "y": { 
-      "field": "city", 
+      "field": "country", 
       "type": "nominal",
       "title": "City",
       "sort": {"field": "daily_cost", "order": "ascending"}
