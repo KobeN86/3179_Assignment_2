@@ -1,20 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": { "text": "Cheapest European Cities" },
-  "width": 600,
-  "height": 400,
+  "width": 500,
+  "height": 300,
   "data": {
-    "url": "https://raw.githubusercontent.com/FIT3179/Datasets/main/city_daily_cost.csv"
+    "values": [
+      {"city": "Kiev", "daily_cost": 25},
+      {"city": "Budapest", "daily_cost": 35},
+      {"city": "Prague", "daily_cost": 40},
+      {"city": "Warsaw", "daily_cost": 42},
+      {"city": "Sofia", "daily_cost": 28},
+      {"city": "Belgrade", "daily_cost": 30},
+      {"city": "Krakow", "daily_cost": 38},
+      {"city": "Bucharest", "daily_cost": 33},
+      {"city": "Zagreb", "daily_cost": 45},
+      {"city": "Athens", "daily_cost": 55},
+      {"city": "Lisbon", "daily_cost": 52}
+    ]
   },
-  "transform": [
-    {
-      "window": [{"op": "rank", "as": "rank"}],
-      "sort": [{"field": "daily_cost", "order": "ascending"}]
-    },
-    {
-      "filter": "datum.rank <= 15"
-    }
-  ],
   "mark": "bar",
   "encoding": {
     "x": { 
@@ -25,6 +28,7 @@
     "y": { 
       "field": "city", 
       "type": "nominal",
+      "title": "City",
       "sort": {"field": "daily_cost", "order": "ascending"}
     }
   }
