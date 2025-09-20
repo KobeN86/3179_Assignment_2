@@ -1,5 +1,113 @@
-id,city,daily_cost
-1,A,10
-2,B,20
-3,C,30
-4,D,40
+Country,Renewable
+Africa,9.354101
+Africa (EI),9.354101
+Algeria,0.24168092
+Argentina,14.8029785
+Asia,12.840818
+Asia Pacific (EI),14.513296
+Australia,14.733206
+Austria,43.347355
+Azerbaijan,4.303142
+Bangladesh,1.0953214
+Belarus,0.96882594
+Belgium,11.45436
+Brazil,49.61598
+Bulgaria,16.42459
+CIS (EI),6.1563888
+Canada,27.156591
+Central America (EI),27.344881
+Chile,32.254448
+China,17.472376
+Colombia,26.092882
+Croatia,27.778172
+Cyprus,10.795388
+Czechia,9.745923
+Denmark,41.722164
+Eastern Africa (EI),31.872005
+Ecuador,25.357561
+Egypt,5.778012
+Estonia,17.946262
+Europe,17.848698
+Europe (EI),23.189604
+European Union (27),22.290787
+Finland,38.894417
+France,16.46539
+Germany,23.968008
+Greece,21.05491
+High-income countries,13.73302
+Hong Kong,1.0481005
+Hungary,12.705954
+Iceland,80.49809
+India,9.146443
+Indonesia,10.95419
+Iran,1.4326231
+Iraq,0.58428055
+Ireland,22.180317
+Israel,9.794843
+Italy,20.930578
+Japan,12.697048
+Kazakhstan,5.119867
+Kuwait,0.075629674
+Latvia,29.669052
+Lithuania,23.413942
+Lower-middle-income countries,9.948721
+Luxembourg,14.278366
+Malaysia,8.281804
+Mexico,8.250967
+Middle Africa (EI),29.908087
+Middle East (EI),1.5773549
+Morocco,8.673474
+Netherlands,18.119257
+New Zealand,42.554394
+Non-OECD (EI),5.2024803
+Non-OECD (EI),13.783567
+North America,13.561747
+North America (EI),13.559166
+North Macedonia,16.037403
+Norway,71.81197
+OECD (EI),16.62371
+Oceania,18.182968
+Oman,1.1151829
+Other Asia Pacific (EI),24.54877
+Other CIS (EI),38.954353
+Other Caribbean (EI),5.3985224
+Other Europe (EI),19.345661
+Other Middle East (EI),4.903802
+Other Northern Africa (EI),0.5769965
+Other South America (EI),44.72206
+Other Southern Africa (EI),15.234232
+Pakistan,12.506971
+Peru,26.65619
+Philippines,12.818433
+Poland,13.04527
+Portugal,39.74076
+Qatar,0.81071275
+Romania,19.111818
+Russia,5.999395
+Saudi Arabia,0.7283918
+Singapore,0.5452378
+Slovakia,11.295315
+Slovenia,24.735876
+South Africa,3.5567286
+South America,37.832787
+South Korea,4.748179
+South and Central America (EI),34.879242
+Spain,25.862646
+Sri Lanka,23.249748
+Sweden,51.31793
+Switzerland,39.8679
+Taiwan,6.2682457
+Thailand,7.4027457
+Trinidad and Tobago,0.010788339
+Turkey,19.78555
+Turkmenistan,0.00666179
+Ukraine,8.298777
+United Arab Emirates,2.5193515
+United Kingdom,21.292688
+United States,12.050454
+Upper-middle-income countries,16.679878
+Uzbekistan,4.581725
+Venezuela,25.840307
+Vietnam,21.53411
+Western Africa (EI),7.9423223
+World,14.822139
