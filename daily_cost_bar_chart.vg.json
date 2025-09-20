@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Cheapest European Cities" },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/FIT3179/Datasets/main/city_daily_cost.csv"
+  },
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "daily_cost", "order": "ascending"}]
+    },
+    {
+      "filter": "datum.rank <= 15"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": { 
+      "field": "daily_cost", 
+      "type": "quantitative",
+      "title": "Daily Cost (USD)"
+    },
+    "y": { 
+      "field": "city", 
+      "type": "nominal",
+      "sort": {"field": "daily_cost", "order": "ascending"}
+    }
+  }
+}
