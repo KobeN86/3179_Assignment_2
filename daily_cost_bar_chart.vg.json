@@ -4,20 +4,9 @@
   "width": 500,
   "height": 300,
   "data": {
-    "values": [
-      {"city": "Kiev", "daily_cost": 25},
-      {"city": "Budapest", "daily_cost": 35},
-      {"city": "Prague", "daily_cost": 40},
-      {"city": "Warsaw", "daily_cost": 42},
-      {"city": "Sofia", "daily_cost": 28},
-      {"city": "Belgrade", "daily_cost": 30},
-      {"city": "Krakow", "daily_cost": 38},
-      {"city": "Bucharest", "daily_cost": 33},
-      {"city": "Zagreb", "daily_cost": 45},
-      {"city": "Athens", "daily_cost": 55},
-      {"city": "Lisbon", "daily_cost": 52}
-    ]
+  "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/blob/main/Filtered_data.csv"
   },
+
   "mark": "bar",
   "encoding": {
     "x": { 
