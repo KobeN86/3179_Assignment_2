@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Proportion of Energy from Renewable Sources (2000–2024)",
+  "width": 1100,
+  "height": 600,
+  "projection": {"type": "equirectangular"},
+  "params": [
+    {
+      "name": "YearSelection",
+      "value": 2000,
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {"graticule": true},
+      "mark": {"type": "geoshape", "stroke": "#888", "strokeWidth": 0.5, "fill": null}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.NAME == 'United States of America' ? 'United States of America' : datum.properties.NAME == 'Czech Republic' ? 'Czechia' : datum.properties.NAME == 'Republic of the Congo' ? 'Congo' : datum.properties.NAME == 'Democratic Republic of the Congo' ? 'Congo' : datum.properties.NAME == 'South Korea' ? 'South Korea' : datum.properties.NAME == 'North Korea' ? 'North Korea' : datum.properties.NAME == 'Macedonia' ? 'North Macedonia' : datum.properties.NAME",
+          "as": "CountryName"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {"value": "#cccccc"},
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {"title": "Renewables (%)", "value": "No data for selected year"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.NAME == 'United States of America' ? 'United States of America' : datum.properties.NAME == 'Czech Republic' ? 'Czechia' : datum.properties.NAME == 'Republic of the Congo' ? 'Congo' : datum.properties.NAME == 'Democratic Republic of the Congo' ? 'Congo' : datum.properties.NAME == 'South Korea' ? 'South Korea' : datum.properties.NAME == 'North Korea' ? 'North Korea' : datum.properties.NAME == 'Macedonia' ? 'North Macedonia' : datum.properties.NAME",
+          "as": "CountryName"
+        },
+        {
+          "lookup": "CountryName",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/KobeN86/W10HomeWork/refs/heads/main/data/wide_data_og.csv",
+              "format": {"type": "csv"}
+            },
+            "key": "Country",
+            "fields": ["2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]
+          },
+          "default": null
+        },
+        {
+          "calculate": "toNumber(datum[toString(YearSelection)])",
+          "as": "RenewablesNum"
+        },
+        {
+          "filter": "datum.RenewablesNum != null && !isNaN(datum.RenewablesNum)"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "RenewablesNum",
+          "type": "quantitative",
+          "scale": {"type": "linear", "range": ["#440154","#21918c","#5dc863","#fde725"]},
+          "title": "Renewable Energy (%)",
+          "legend": {"orient": "right"}
+        },
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {"field": "RenewablesNum", "type": "quantitative", "format": ".2f", "title": "Renewables (%)"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"label": "Australia's Renewable usage increased from 4% to 15% betweeen 2000 and 2024", "lon": 3350.7751, "lat": -25.2744, "labelLon": 750, "labelLat": -60}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "rule", "color": "black"},
+          "encoding": {
+            "longitude": {"field": "labelLon"},
+            "latitude": {"field": "labelLat"},
+            "longitude2": {"field": "lon"},
+            "latitude2": {"field": "lat"}
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "fontSize": 14, "fontWeight": "bold"},
+          "encoding": {
+            "longitude": {"field": "labelLon"},
+            "latitude": {"field": "labelLat"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    }
+  ]
+}
