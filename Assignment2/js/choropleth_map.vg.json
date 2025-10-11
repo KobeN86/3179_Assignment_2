@@ -56,7 +56,7 @@
           "lookup": "CountryName",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/KobeN86/W10HomeWork/refs/heads/main/data/wide_data_og.csv",
+              "url": "https://raw.githubusercontent.com/KobeN86/W10HomeWork/refs/heads/main/data/Land_Usage.csv",
               "format": {"type": "csv"}
             },
             "key": "Country",
