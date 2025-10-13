@@ -1,46 +1,31 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": { "text": "CO₂ Emissions Per Country" },
-  "width": 600,
-  "height": 400,
+  "title": {"text": "CO₂ Emissions Per Country (1960–2024)"},
+  "width": 800,
+  "height": 450,
   "data": {
-    "url": "https://raw.githubusercontent.com/KobeN86/W10HomeWork/main/data/annual-co2-emissions-per-country.csv"
+    "url": "https://raw.githubusercontent.com/KobeN86/W10HomeWork/main/data/annual-co2-emissions-per-country.csv",
+    "format": {"type": "csv"}
   },
-  "params": [
-    {
-      "name": "country_selection",
-      "value": ["Australia"],
-      "bind": {
-        "input": "select",
-        "options": [
-          "Australia", "China", "India", "United States", "United Kingdom", "Germany", "Brazil"
-        ],
-        "labels": [
-          "Australia", "China", "India", "USA", "UK", "Germany", "Brazil"
-        ],
-        "name": "Select Country: "
-      }
-    }
-  ],
   "transform": [
+    {"filter": "datum.Year >= 1960"},
     {
-      "filter": "datum.Year >= 1960" 
-    },
-    {
-      "filter": "indexof(country_selection, datum.Entity) >= 0"
+      "filter": "datum.Entity == 'Australia' || datum.Entity == 'China' || datum.Entity == 'India' || datum.Entity == 'United States' || datum.Entity == 'United Kingdom' || datum.Entity == 'Germany' || datum.Entity == 'Brazil'"
     }
   ],
-  "mark": "area",
+  "mark": {"type": "bar"},
   "encoding": {
     "x": {
       "field": "Year",
       "type": "temporal",
-      "title": "Year"
+      "title": "Year",
+      "axis": {"labelAngle": -45}
     },
     "y": {
       "field": "Emmisions",
       "type": "quantitative",
-      "title": "CO₂ Emissions (tonnes)"
+      "title": "CO₂ Emissions (Trillions of tonnes)",
+      "stack": "zero"
     },
     "color": {
       "field": "Entity",

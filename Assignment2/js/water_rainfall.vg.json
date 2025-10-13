@@ -1,34 +1,67 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australian Wheat Yield (1980–2024)",
+  "title": "Australian Wheat Precipitation vs Water Charges (1980-2024)",
   "width": 1100,
   "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/water_rainfall.csv",
+    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/water_again.csv",
     "format": {"type": "csv"}
   },
-  "mark": {
-    "type": "line",
-    "point": true,
-    "tooltip": true
-  },
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "temporal",
-      "title": "Year"
+  "layer": [
+    {
+      "layer": [
+        {
+          "mark": {"type": "area", "opacity": 0.5, "color": "#ff0000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {
+              "field": "Water Charges",
+              "type": "quantitative",
+              "axis": {
+                "title": "Water Charges ($/ML)",
+                "titleColor": "#000000",
+                "format": ".0f"
+              }
+            }
+          }
+        },
+        {
+          "mark": {"type": "line", "point": true, "color": "#000000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Water Charges", "type": "quantitative"}
+          }
+        }
+      ]
     },
-    "y": {
-      "field": "Water Charges",
-      "type": "quantitative",
-      "title": "Yield Per Capita Normalized to 1950"
-    },
-    "color": {
-      "value": "#8c1aff"
-    },
-    "tooltip": [
-      {"field": "Year", "type": "temporal", "title": "Year"},
-      {"field": "Yield", "type": "quantitative", "title": "Yield (t/ha)"}
-    ]
-  }
+    {
+      "layer": [
+        {
+          "mark": {"type": "area", "opacity": 0.5, "color": "#0011ff"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {
+              "field": "Percipitation",
+              "type": "quantitative",
+              "axis": {
+                "orient": "right",
+                "title": "Wheat Precipitation (mm)",
+                "titleColor": "#000000",
+                "format": ".0f"
+              },
+              "scale": {"zero": true}
+            }
+          }
+        },
+        {
+          "mark": {"type": "line", "point": true, "color": "#000000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Percipitation", "type": "quantitative"}
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}}
 }
