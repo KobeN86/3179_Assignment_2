@@ -4,7 +4,7 @@
   "width": 1100,
   "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/Wheat_production.csv",
+    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/water_rainfall.csv",
     "format": {"type": "csv"}
   },
   "mark": {
@@ -19,7 +19,7 @@
       "title": "Year"
     },
     "y": {
-      "field": "Data",
+      "field": "Water Charges",
       "type": "quantitative",
       "title": "Yield Per Capita Normalized to 1950"
     },

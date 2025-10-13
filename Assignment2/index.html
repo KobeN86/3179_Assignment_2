@@ -37,8 +37,8 @@
   
   <div id="choropleth_map"></div>
   <div id="second_visualization"></div>
-  <div id="wheat_yield_chart"></div> <!-- New line chart -->
-
+  <div id="wheat_yield_chart"></div> New line chart
+  <div id="water_rainfall_chart"></div> <!-- New line chart -->
   <script type="text/javascript">
     // First visualization: choropleth map
     var spec1 = "js/choropleth_map.vg.json";
@@ -51,6 +51,10 @@
     // Third visualization: wheat yield time series
     var spec3 = "js/wheat_data.vg.json";
     vegaEmbed('#wheat_yield_chart', spec3).catch(console.error);
+
+    // Third visualization: wheat yield time series
+    var spec4 = "js/water_rainfall.vg.json";
+    vegaEmbed('#water_rainfall_chart', spec4).catch(console.error);
   </script>
 
 </body>
