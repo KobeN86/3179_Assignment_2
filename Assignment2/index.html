@@ -13,8 +13,8 @@
       text-align: center;
     }
 
-    /* Center the choropleth map and slider */
-    #choropleth_map {
+    /* Center the visualizations */
+    #choropleth_map, #second_visualization, #wheat_yield_chart {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,19 +37,20 @@
   
   <div id="choropleth_map"></div>
   <div id="second_visualization"></div>
+  <div id="wheat_yield_chart"></div> <!-- New line chart -->
 
   <script type="text/javascript">
-    // First visualization
+    // First visualization: choropleth map
     var spec1 = "js/choropleth_map.vg.json";
-    vegaEmbed('#choropleth_map', spec1).then(function(result) {
-      // Vega view instance if needed
-    }).catch(console.error);
+    vegaEmbed('#choropleth_map', spec1).catch(console.error);
 
-    // Second visualization
+    // Second visualization: emissions bar chart
     var spec2 = "js/global_emmisions_bar_chart.vg.json";
-    vegaEmbed('#second_visualization', spec2).then(function(result) {
-      // Vega view instance if needed
-    }).catch(console.error);
+    vegaEmbed('#second_visualization', spec2).catch(console.error);
+
+    // Third visualization: wheat yield time series
+    var spec3 = "js/wheat_data.vg.json";
+    vegaEmbed('#wheat_yield_chart', spec3).catch(console.error);
   </script>
 
 </body>
