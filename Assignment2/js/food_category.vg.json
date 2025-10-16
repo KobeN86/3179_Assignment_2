@@ -1,42 +1,79 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "FOOOD"},
+  "title": "Australian Wheat Precipitation vs Water Charges (1980–2024)",
   "width": 1100,
-  "height": 450,
+  "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/annual-co2-emissions-per-country.csv",
+    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/food.csv",
     "format": {"type": "csv"}
   },
-  "transform": [
-    {"filter": "datum.Year >= 1960"},
+  "layer": [
     {
-      "filter": "datum.Entity == 'Australia' || datum.Entity == 'China' || datum.Entity == 'India' || datum.Entity == 'United States' || datum.Entity == 'United Kingdom' || datum.Entity == 'Germany' || datum.Entity == 'Brazil'"
+      "layer": [
+        {
+          "mark": {"type": "area", "opacity": 0.5, "color": "#ff0000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {
+              "field": "Water Charges",
+              "type": "quantitative",
+              "axis": {
+                "title": "Water Charges ($/ML)",
+                "titleColor": "#000000",
+                "format": ".0f"
+              }
+            }
+          }
+        },
+        {
+          "mark": {"type": "line", "point": true, "color": "#000000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Water Charges", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Year", "type": "temporal"},
+              {"field": "Water Charges", "type": "quantitative"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "area", "opacity": 0.5, "color": "#6699ff"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {
+              "field": "Percipitation",
+              "type": "quantitative",
+              "axis": {
+                "orient": "right",
+                "title": "Wheat Precipitation (mm)",
+                "titleColor": "#000000",
+                "format": ".0f"
+              },
+              "scale": {"zero": true}
+            }
+          }
+        },
+        {
+          "mark": {"type": "line", "point": true, "color": "#000000"},
+          "encoding": {
+            "x": {"field": "Year", "type": "temporal"},
+            "y": {"field": "Percipitation", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Year", "type": "temporal"},
+              {"field": "Percipitation", "type": "quantitative"}
+            ]
+          }
+        }
+      ]
     }
   ],
-  "mark": {"type": "area"},
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "temporal",
-      "title": "Year",
-      "axis": {"labelAngle": -45}
-    },
-    "y": {
-      "field": "DIV10",
-      "type": "quantitative",
-      "title": "CO₂ Emissions (Millions of tonnes)",
-      "stack": "zero"
-    },
-    "color": {
-      "field": "Entity",
-      "type": "nominal",
-      "title": "Country",
-      "scale": {"scheme": "rainbow"}
-    },
-    "tooltip": [
-      {"field": "Entity", "type": "nominal", "title": "Country"},
-      {"field": "Year", "type": "temporal", "title": "Year", "format": "%Y"},
-      {"field": "Emmisions", "type": "quantitative", "title": "CO₂ Emissions (tonnes)", "format": ",.0f"}
-    ]
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {
+    "axis": {"labelFontSize": 14, "titleFontSize": 16},
+    "title": {"fontSize": 22}
   }
 }
