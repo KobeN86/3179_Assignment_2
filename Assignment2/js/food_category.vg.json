@@ -1,79 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australian Wheat Precipitation vs Water Charges (1980–2024)",
-  "width": 1100,
-  "height": 600,
+  "title": "Average Annual Price Change by Food Category",
+  "width": 900,
+  "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/food.csv",
+    "url": "https://raw.githubusercontent.com/KobeN86/3179_Assignment_2/refs/heads/main/Assignment2/data/food_2.csv",
     "format": {"type": "csv"}
   },
-  "layer": [
+  "transform": [
     {
-      "layer": [
-        {
-          "mark": {"type": "area", "opacity": 0.5, "color": "#ff0000"},
-          "encoding": {
-            "x": {"field": "Year", "type": "temporal"},
-            "y": {
-              "field": "Water Charges",
-              "type": "quantitative",
-              "axis": {
-                "title": "Water Charges ($/ML)",
-                "titleColor": "#000000",
-                "format": ".0f"
-              }
-            }
-          }
-        },
-        {
-          "mark": {"type": "line", "point": true, "color": "#000000"},
-          "encoding": {
-            "x": {"field": "Year", "type": "temporal"},
-            "y": {"field": "Water Charges", "type": "quantitative"},
-            "tooltip": [
-              {"field": "Year", "type": "temporal"},
-              {"field": "Water Charges", "type": "quantitative"}
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "area", "opacity": 0.5, "color": "#6699ff"},
-          "encoding": {
-            "x": {"field": "Year", "type": "temporal"},
-            "y": {
-              "field": "Percipitation",
-              "type": "quantitative",
-              "axis": {
-                "orient": "right",
-                "title": "Wheat Precipitation (mm)",
-                "titleColor": "#000000",
-                "format": ".0f"
-              },
-              "scale": {"zero": true}
-            }
-          }
-        },
-        {
-          "mark": {"type": "line", "point": true, "color": "#000000"},
-          "encoding": {
-            "x": {"field": "Year", "type": "temporal"},
-            "y": {"field": "Percipitation", "type": "quantitative"},
-            "tooltip": [
-              {"field": "Year", "type": "temporal"},
-              {"field": "Percipitation", "type": "quantitative"}
-            ]
-          }
-        }
-      ]
+      "fold": ["2003-13 (%)", "2013-23 (%)", "2021-23 (%)"],
+      "as": ["Period", "Percent Change"]
     }
   ],
-  "resolve": {"scale": {"y": "independent"}},
+  "mark": {
+    "type": "bar",
+    "width": {"band": 0.7}
+  },
+  "encoding": {
+    "x": {
+      "field": "Category",
+      "type": "nominal",
+      "axis": {"title": null, "labelAngle": -30}
+    },
+    "y": {
+      "field": "Percent Change",
+      "type": "quantitative",
+      "axis": {"title": "Average Annual Change (%)"}
+    },
+    "color": {
+      "field": "Period",
+      "type": "nominal",
+      "scale": {
+        "domain": ["2003-13 (%)", "2013-23 (%)", "2021-23 (%)"],
+        "range": ["#ff9999", "#6699ff", "#66cc66"]
+      },
+      "legend": {"title": "Period"}
+    },
+    "tooltip": [
+      {"field": "Category"},
+      {"field": "Period"},
+      {"field": "Percent Change", "type": "quantitative", "format": ".1f"}
+    ]
+  },
   "config": {
-    "axis": {"labelFontSize": 14, "titleFontSize": 16},
-    "title": {"fontSize": 22}
+    "axis": {"labelFontSize": 13, "titleFontSize": 15},
+    "title": {"fontSize": 22, "anchor": "start"}
   }
 }
