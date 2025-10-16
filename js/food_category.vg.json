@@ -33,7 +33,7 @@
       "type": "nominal",
       "scale": {
         "domain": ["2003-13 (%)", "2013-23 (%)", "2021-23 (%)"],
-        "range": ["#ff9999", "#6699ff", "#66cc66"]
+        "range": ["#3daed4", "#4b00d6", "#d60000"]
       },
       "legend": {"title": "Period"}
     },

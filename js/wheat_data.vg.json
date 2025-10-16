@@ -10,7 +10,8 @@
   "mark": {
     "type": "line",
     "point": true,
-    "tooltip": true
+    "tooltip": true,
+    "color": "#400177"
   },
   "encoding": {
     "x": {
@@ -23,19 +24,13 @@
       "type": "quantitative",
       "title": "Yield Per Capita Normalized to 1950"
     },
-    "color": {
-      "value": "#8c1aff"
-    },
     "tooltip": [
       {"field": "Year", "type": "temporal", "title": "Year"},
       {"field": "Yield", "type": "quantitative", "title": "Yield (t/ha)"}
     ]
   },
   "config": {
-    "axis": {
-      "labelFontSize": 16,
-      "titleFontSize": 18
-    },
+    "axis": {"labelFontSize": 16, "titleFontSize": 18},
     "title": {"fontSize": 22}
   }
 }

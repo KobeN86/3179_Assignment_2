@@ -31,7 +31,7 @@
       "field": "Entity",
       "type": "nominal",
       "title": "Country",
-      "scale": {"scheme": "rainbow"}
+      "scale": {"scheme": "purpleorange"}
     },
     "tooltip": [
       {"field": "Entity", "type": "nominal", "title": "Country"},
