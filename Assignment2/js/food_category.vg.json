@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "CO₂ Emissions Per Country (1960–2024)"},
+  "title": {"text": "FOOOD"},
   "width": 1100,
   "height": 450,
   "data": {

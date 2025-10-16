@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Land usage % for farming",
   "width": 1100,
   "height": 600,
   "projection": {"type": "equirectangular"},
@@ -102,7 +101,7 @@
     {
       "data": {
         "values": [
-          {"label": "Australia's Renewable usage increased from 4% to 15% betweeen 2000 and 2024", "lon": 3350.7751, "lat": -25.2744, "labelLon": 750, "labelLat": -60}
+          {"label": "Australia's Farm Land has decreased by %30 from 1960 to 2024", "lon": 3350.7751, "lat": -25.2744, "labelLon": 750, "labelLat": -60}
         ]
       },
       "layer": [

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australian Wheat Precipitation vs Water Charges (1980-2024)",
+  "title": "Australian Wheat Precipitation vs Water Charges (1980–2024)",
   "width": 1100,
   "height": 600,
   "data": {
@@ -29,7 +29,11 @@
           "mark": {"type": "line", "point": true, "color": "#000000"},
           "encoding": {
             "x": {"field": "Year", "type": "temporal"},
-            "y": {"field": "Water Charges", "type": "quantitative"}
+            "y": {"field": "Water Charges", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Year", "type": "temporal"},
+              {"field": "Water Charges", "type": "quantitative"}
+            ]
           }
         }
       ]
@@ -37,7 +41,7 @@
     {
       "layer": [
         {
-          "mark": {"type": "area", "opacity": 0.5, "color": "#0011ff"},
+          "mark": {"type": "area", "opacity": 0.5, "color": "#6699ff"},
           "encoding": {
             "x": {"field": "Year", "type": "temporal"},
             "y": {
@@ -57,11 +61,19 @@
           "mark": {"type": "line", "point": true, "color": "#000000"},
           "encoding": {
             "x": {"field": "Year", "type": "temporal"},
-            "y": {"field": "Percipitation", "type": "quantitative"}
+            "y": {"field": "Percipitation", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Year", "type": "temporal"},
+              {"field": "Percipitation", "type": "quantitative"}
+            ]
           }
         }
       ]
     }
   ],
-  "resolve": {"scale": {"y": "independent"}}
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {
+    "axis": {"labelFontSize": 14, "titleFontSize": 16},
+    "title": {"fontSize": 22}
+  }
 }

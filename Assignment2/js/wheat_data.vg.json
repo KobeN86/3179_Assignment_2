@@ -30,5 +30,12 @@
       {"field": "Year", "type": "temporal", "title": "Year"},
       {"field": "Yield", "type": "quantitative", "title": "Yield (t/ha)"}
     ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 16,
+      "titleFontSize": 18
+    },
+    "title": {"fontSize": 22}
   }
 }
